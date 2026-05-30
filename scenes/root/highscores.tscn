@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://p7ljf4fimmfy"]
+
+[ext_resource type="Texture2D" uid="uid://lyc7xhy5pxch" path="res://assets/space_background_play.png" id="1_0y87l"]
+[ext_resource type="Script" uid="uid://dg1ji21w6tbq" path="res://scripts/root/highscores.gd" id="1_bfear"]
+[ext_resource type="StyleBox" uid="uid://c5bdtgljwr5vh" path="res://assets/buttons_normal.tres" id="2_6mt1c"]
+[ext_resource type="StyleBox" uid="uid://bhv8067c3r167" path="res://assets/buttons_pressed.tres" id="3_bfear"]
+[ext_resource type="StyleBox" uid="uid://nflkqgnw2pwa" path="res://assets/buttons_hover.tres" id="4_e6sy3"]
+
+[node name="Highscores" type="Control" unique_id=1476411647]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfear")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1753273190]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0y87l")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=728117574]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BackButton" type="Button" parent="MarginContainer" unique_id=1747351640]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.69
+theme_override_styles/normal = ExtResource("2_6mt1c")
+theme_override_styles/pressed = ExtResource("3_bfear")
+theme_override_styles/hover = ExtResource("4_e6sy3")
+text = "Back"
+
+[connection signal="button_up" from="MarginContainer/BackButton" to="." method="_on_back_button_button_up"]

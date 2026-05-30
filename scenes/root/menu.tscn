@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bpo0vbdiqxu57"]
+
+[ext_resource type="Script" uid="uid://dsdbj5huvgjyt" path="res://scripts/root/menu.gd" id="1_uvd6o"]
+[ext_resource type="Texture2D" uid="uid://dv1tea0yx3svl" path="res://assets/space_background.png" id="2_pdwgi"]
+[ext_resource type="StyleBox" uid="uid://c5bdtgljwr5vh" path="res://assets/buttons_normal.tres" id="3_2wrav"]
+[ext_resource type="StyleBox" uid="uid://bhv8067c3r167" path="res://assets/buttons_pressed.tres" id="4_ugusu"]
+[ext_resource type="StyleBox" uid="uid://nflkqgnw2pwa" path="res://assets/buttons_hover.tres" id="5_0xddw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+
+[node name="Menu" type="Control" unique_id=1657683556]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uvd6o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2022488433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pdwgi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=504587882]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.722
+anchor_right = 0.5
+anchor_bottom = 0.722
+offset_left = -239.0
+offset_top = -93.0
+offset_right = 239.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=311389998]
+layout_mode = 2
+text = "Space Shooter"
+label_settings = SubResource("LabelSettings_vjb58")
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1402708890]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("3_2wrav")
+theme_override_styles/pressed = ExtResource("4_ugusu")
+theme_override_styles/hover = ExtResource("5_0xddw")
+theme_override_styles/hover_pressed = ExtResource("4_ugusu")
+text = "Play"
+
+[node name="HighscoresButton" type="Button" parent="VBoxContainer" unique_id=1541598425]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("3_2wrav")
+theme_override_styles/pressed = ExtResource("4_ugusu")
+theme_override_styles/hover = ExtResource("5_0xddw")
+theme_override_styles/hover_pressed = ExtResource("4_ugusu")
+text = "Highscores"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1751817225]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("3_2wrav")
+theme_override_styles/pressed = ExtResource("4_ugusu")
+theme_override_styles/hover = ExtResource("5_0xddw")
+theme_override_styles/hover_pressed = ExtResource("4_ugusu")
+text = "Quit"
+
+[connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/HighscoresButton" to="." method="_on_highscores_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
