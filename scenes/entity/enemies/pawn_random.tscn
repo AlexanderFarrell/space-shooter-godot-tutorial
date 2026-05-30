@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_h5gqu"]
 [ext_resource type="Texture2D" uid="uid://b0grb0kr6aevq" path="res://assets/alien001.png" id="2_2f8f2"]
+[ext_resource type="AudioStream" uid="uid://bbrqxoc73vdsx" path="res://assets/sounds/alien_parrot_1.wav" id="2_k8i2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lin2w"]
 size = Vector2(64, 54)
@@ -12,6 +13,8 @@ collision_mask = 65535
 script = ExtResource("1_h5gqu")
 health = 50
 move_behavior = 2
+voice = ExtResource("2_k8i2u")
+time_for_talk_chance = 2.73
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=591736515]
 texture = ExtResource("2_2f8f2")
@@ -19,6 +22,8 @@ texture = ExtResource("2_2f8f2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415144423]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_lin2w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=405346584]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

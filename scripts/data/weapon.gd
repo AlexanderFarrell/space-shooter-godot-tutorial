@@ -17,6 +17,8 @@ enum BulletResource {
 @export var fire_rate_per_second := 2
 @export var radius := 1.0
 @export var resource_type := BulletResource.INFINITE
+@export var fire_sound: AudioStream
+@export var hit_sound: AudioStream
 
 @export_group("Energy")
 @export var energy_use := 2.0

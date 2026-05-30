@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d21xqfek205u3" path="res://scripts/data/weapon.gd" id="1_7pr24"]
 [ext_resource type="Texture2D" uid="uid://dsuqe7civkyor" path="res://assets/bullet001.png" id="1_ycg8v"]
+[ext_resource type="AudioStream" uid="uid://cym3mi3wsxyio" path="res://assets/sounds/laser_shot_silenced.wav" id="2_n5tl0"]
+[ext_resource type="AudioStream" uid="uid://cw2wtafsdkgk" path="res://assets/sounds/explosion_1.wav" id="3_a4rqq"]
 [ext_resource type="Texture2D" uid="uid://cen5noqc16jo5" path="res://assets/survival_laser.png" id="3_vh1pa"]
 
 [resource]
@@ -11,4 +13,6 @@ damage = 50
 bullet_texture = ExtResource("1_ycg8v")
 weapon_texture = ExtResource("3_vh1pa")
 fire_rate_per_second = 5
+fire_sound = ExtResource("2_n5tl0")
+hit_sound = ExtResource("3_a4rqq")
 metadata/_custom_type_script = "uid://d21xqfek205u3"

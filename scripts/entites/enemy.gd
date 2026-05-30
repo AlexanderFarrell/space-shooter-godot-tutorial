@@ -34,6 +34,8 @@ enum MoveBehavior {
 @export var health := 100
 @export var move_behavior := MoveBehavior.MOVE_DOWN
 @export var attack_behavior := AttackBehavior.NONE
+@export var voice: AudioStream
+@export var time_for_talk_chance := 1.0
 
 @export_category("Attack Properties")
 @export var weapon: Weapon
@@ -41,6 +43,9 @@ enum MoveBehavior {
 @export_category("Strafe to Player Behavior")
 @export var move_to_y := 100
 
+@onready var audio := $AudioStreamPlayer2D
+
+var talk_time := 0.0
 var velocity = Vector2.ZERO
 
 signal add_score(score_to_add: int)
@@ -77,6 +82,14 @@ func _physics_process(delta: float) -> void:
 					global_position += Vector2.LEFT * delta * speed
 				else:
 					global_position += Vector2.RIGHT * delta * speed
+					
+func _process(delta: float) -> void:
+	talk_time -= delta
+	if talk_time <= 0:
+		talk_time = time_for_talk_chance
+		if randf_range(0, 1) > 0.6:
+			audio.stream = voice
+			audio.play()
 			
 	
 func hit(damage: int):
