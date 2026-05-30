@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://b750vkup0wx6i"]
+
+[ext_resource type="Script" uid="uid://bdsrlylhso3pg" path="res://scripts/data/level.gd" id="1_3c61x"]
+[ext_resource type="Script" uid="uid://bdnpl6ckx3pn7" path="res://scripts/data/wave.gd" id="2_vp86y"]
+[ext_resource type="Script" uid="uid://qmjhb4qanleo" path="res://scripts/data/spawn_table_entry.gd" id="3_j007y"]
+[ext_resource type="PackedScene" uid="uid://dq3pju2mkt1wd" path="res://scenes/entity/enemies/asteroid.tscn" id="4_3k614"]
+[ext_resource type="PackedScene" uid="uid://bt3uja3x4v1jf" path="res://scenes/entity/enemies/pawn_targeter.tscn" id="5_3k614"]
+
+[sub_resource type="Resource" id="Resource_jmn4s"]
+script = ExtResource("3_j007y")
+amount = 25
+packed_scene_to_spawn = ExtResource("4_3k614")
+metadata/_custom_type_script = "uid://qmjhb4qanleo"
+
+[sub_resource type="Resource" id="Resource_775gc"]
+script = ExtResource("2_vp86y")
+display_text = "Oh no... asteroids..."
+spawn_table_entries = Array[ExtResource("3_j007y")]([SubResource("Resource_jmn4s")])
+metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
+
+[sub_resource type="Resource" id="Resource_j007y"]
+script = ExtResource("3_j007y")
+amount = 35
+packed_scene_to_spawn = ExtResource("4_3k614")
+metadata/_custom_type_script = "uid://qmjhb4qanleo"
+
+[sub_resource type="Resource" id="Resource_3k614"]
+script = ExtResource("2_vp86y")
+display_text = "It's getting denser!"
+spawn_speed = 1.5
+spawn_table_entries = Array[ExtResource("3_j007y")]([SubResource("Resource_j007y")])
+metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
+
+[sub_resource type="Resource" id="Resource_x5id7"]
+script = ExtResource("3_j007y")
+amount = 120
+packed_scene_to_spawn = ExtResource("4_3k614")
+metadata/_custom_type_script = "uid://qmjhb4qanleo"
+
+[sub_resource type="Resource" id="Resource_l1ask"]
+script = ExtResource("3_j007y")
+amount = 60
+packed_scene_to_spawn = ExtResource("5_3k614")
+metadata/_custom_type_script = "uid://qmjhb4qanleo"
+
+[sub_resource type="Resource" id="Resource_6woyl"]
+script = ExtResource("2_vp86y")
+display_text = "I think we hit a hive!"
+spawn_speed = 1.5
+spawn_table_entries = Array[ExtResource("3_j007y")]([SubResource("Resource_x5id7"), SubResource("Resource_l1ask")])
+metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
+
+[sub_resource type="Resource" id="Resource_85mdb"]
+script = ExtResource("2_vp86y")
+display_text = "I think we're through!"
+metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
+
+[resource]
+script = ExtResource("1_3c61x")
+waves = Array[ExtResource("2_vp86y")]([SubResource("Resource_775gc"), SubResource("Resource_3k614"), SubResource("Resource_6woyl"), SubResource("Resource_85mdb")])
+metadata/_custom_type_script = "uid://bdsrlylhso3pg"

@@ -30,6 +30,8 @@ window/stretch/mode="viewport"
 
 Enemy="Enemies"
 Player=""
+Delete=""
+Spawn=""
 
 [input]
 

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dq3pju2mkt1wd"]
+
+[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_fgw8t"]
+[ext_resource type="Texture2D" uid="uid://dskll4k7vnp82" path="res://assets/asteroid001.png" id="2_f3nx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lin2w"]
+size = Vector2(64, 54)
+
+[node name="Enemy" type="Area2D" unique_id=50975838 groups=["Enemy", "Spawn"]]
+scale = Vector2(3.4446526, 3.7743516)
+collision_layer = 65535
+collision_mask = 65535
+script = ExtResource("1_fgw8t")
+speed = 50.0
+health = 150
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=591736515]
+texture = ExtResource("2_f3nx0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415144423]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_lin2w")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

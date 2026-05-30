@@ -2,23 +2,40 @@
 
 [ext_resource type="PackedScene" uid="uid://brc66bh8cu61q" path="res://scenes/entity/player.tscn" id="1_2pllk"]
 [ext_resource type="Script" uid="uid://bfe7e81y04rcj" path="res://scripts/root/gameplay.gd" id="1_u25l5"]
-[ext_resource type="PackedScene" uid="uid://dfwtkkfkbgo72" path="res://scenes/entity/enemy.tscn" id="2_m5vqo"]
+[ext_resource type="PackedScene" uid="uid://dfwtkkfkbgo72" path="res://scenes/entity/enemies/pawn.tscn" id="2_m5vqo"]
 [ext_resource type="Script" uid="uid://ds2ar0gsiiw1k" path="res://scripts/ui/weapon_display.gd" id="3_4lxin"]
 [ext_resource type="Texture2D" uid="uid://lyc7xhy5pxch" path="res://assets/space_background_play.png" id="3_a3c1b"]
-[ext_resource type="Script" uid="uid://ck8jwf8ygpmt1" path="res://scripts/entites/delete_area.gd" id="4_aun1u"]
+[ext_resource type="Script" uid="uid://bdsrlylhso3pg" path="res://scripts/data/level.gd" id="3_lcvfv"]
 [ext_resource type="Texture2D" uid="uid://cen5noqc16jo5" path="res://assets/survival_laser.png" id="4_m5vqo"]
-[ext_resource type="Script" uid="uid://bfveulu1finyl" path="res://scenes/root/status_display.gd" id="8_c0qxp"]
+[ext_resource type="Resource" uid="uid://dmx5doooaejyo" path="res://data/levels/1.tres" id="4_y8oip"]
+[ext_resource type="Resource" uid="uid://b750vkup0wx6i" path="res://data/levels/2.tres" id="5_tnaol"]
+[ext_resource type="Script" uid="uid://bfveulu1finyl" path="res://scripts/ui/status_display.gd" id="8_c0qxp"]
 [ext_resource type="Script" uid="uid://bvradigo7qlfw" path="res://scripts/ui/message_box.gd" id="9_lcvfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5vqo"]
 size = Vector2(1182.206, 43)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_00tan"]
-size = Vector2(20, 80)
+[sub_resource type="GDScript" id="GDScript_c0qxp"]
+script/source = "extends Area2D
 
-[node name="Node" type="Node" unique_id=1297433147]
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group(\"Enemy\"):
+		area.queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00tan"]
+size = Vector2(33.08367, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0qxp"]
+size = Vector2(1.8760786, 1353.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcvfv"]
+size = Vector2(1.6963758, 1281.5)
+
+[node name="Gameplay" type="Node" unique_id=1297433147]
 script = ExtResource("1_u25l5")
 enemy = ExtResource("2_m5vqo")
+levels = Array[ExtResource("3_lcvfv")]([ExtResource("4_y8oip"), ExtResource("5_tnaol")])
 
 [node name="World" type="Node2D" parent="." unique_id=2024437885]
 
@@ -41,14 +58,22 @@ scale = Vector2(1.0400048, 1)
 position = Vector2(-29.567078, -79)
 shape = SubResource("RectangleShape2D_m5vqo")
 
-[node name="DeleteArea" type="Area2D" parent="World" unique_id=1533899362]
+[node name="DeleteArea" type="Area2D" parent="World" unique_id=1533899362 groups=["Delete"]]
 position = Vector2(666, 764)
 scale = Vector2(69.56, 1)
-script = ExtResource("4_aun1u")
+script = SubResource("GDScript_c0qxp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DeleteArea" unique_id=858393877]
-position = Vector2(0, 30)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DeleteArea" unique_id=858393877 groups=["Delete"]]
+position = Vector2(0.8862858, 436)
 shape = SubResource("RectangleShape2D_00tan")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/DeleteArea" unique_id=502996456]
+position = Vector2(-16.349195, -130.75)
+shape = SubResource("RectangleShape2D_c0qxp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/DeleteArea" unique_id=1950837982]
+position = Vector2(16.20184, -161.75)
+shape = SubResource("RectangleShape2D_lcvfv")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1517768594]
 
@@ -109,6 +134,10 @@ text = "Health: 100"
 layout_mode = 2
 text = "Score: 0"
 
+[node name="Level" type="Label" parent="UI/MarginContainer/Control/StatusDisplay" unique_id=1509990865]
+layout_mode = 2
+text = "Level: 1"
+
 [node name="MessageBox" type="Label" parent="UI/MarginContainer/Control" unique_id=944652062]
 layout_mode = 1
 anchors_preset = 5
@@ -121,6 +150,14 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 script = ExtResource("9_lcvfv")
+
+[node name="ColorScreenTint" type="ColorRect" parent="UI" unique_id=185532918]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="on_death" from="World/Player" to="." method="_on_player_on_death"]
 [connection signal="area_entered" from="World/DeleteArea" to="World/DeleteArea" method="_on_area_entered"]

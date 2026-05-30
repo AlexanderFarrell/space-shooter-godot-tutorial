@@ -1,19 +1,21 @@
-[gd_scene format=3 uid="uid://dfwtkkfkbgo72"]
+[gd_scene format=3 uid="uid://bt3uja3x4v1jf"]
 
-[ext_resource type="Texture2D" uid="uid://b0grb0kr6aevq" path="res://assets/alien001.png" id="1_ho1e7"]
-[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_lin2w"]
+[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_hlgbd"]
+[ext_resource type="Texture2D" uid="uid://b0grb0kr6aevq" path="res://assets/alien001.png" id="2_i1h8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lin2w"]
 size = Vector2(64, 54)
 
-[node name="Enemy" type="Area2D" unique_id=50975838 groups=["Enemy"]]
+[node name="Enemy" type="Area2D" unique_id=50975838 groups=["Enemy", "Spawn"]]
 collision_layer = 65535
 collision_mask = 65535
-script = ExtResource("1_lin2w")
+script = ExtResource("1_hlgbd")
 health = 50
+move_behavior = 1
+move_to_y = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=591736515]
-texture = ExtResource("1_ho1e7")
+texture = ExtResource("2_i1h8m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=415144423]
 position = Vector2(0, -3)
