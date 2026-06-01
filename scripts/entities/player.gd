@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			current_weapon_index = weapons.size() - 1
 			if current_weapon_index < 0:
 				current_weapon_index = 0
-		GameplayUi.update_weapon(active_weapon);
+		GameplayUi.update_weapon(active_weapon)
 	if Input.is_action_just_pressed("switch_weapon_next"):
 		current_weapon_index += 1
 		if current_weapon_index >= weapons.size():
