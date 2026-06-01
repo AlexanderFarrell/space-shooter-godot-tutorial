@@ -36,6 +36,7 @@ enum MoveBehavior {
 @export var attack_behavior := AttackBehavior.NONE
 @export var voice: AudioStream
 @export var time_for_talk_chance := 1.0
+@export var random_rotation := false
 
 @export_category("Attack Properties")
 @export var weapon: Weapon
@@ -51,6 +52,8 @@ var velocity = Vector2.ZERO
 signal add_score(score_to_add: int)
 
 func _ready() -> void:
+	if random_rotation:
+		global_rotation_degrees = randf_range(0, TAU)
 	match move_behavior:
 		MoveBehavior.MOVE_DOWN:
 			velocity = Vector2.DOWN * speed

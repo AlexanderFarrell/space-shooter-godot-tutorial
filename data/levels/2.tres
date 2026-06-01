@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://qmjhb4qanleo"
 [sub_resource type="Resource" id="Resource_775gc"]
 script = ExtResource("2_vp86y")
 display_text = "Oh no... asteroids..."
+spawn_speed = 1.0
 spawn_table_entries = Array[ExtResource("3_j007y")]([SubResource("Resource_jmn4s")])
 metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
 
@@ -27,7 +28,7 @@ metadata/_custom_type_script = "uid://qmjhb4qanleo"
 [sub_resource type="Resource" id="Resource_3k614"]
 script = ExtResource("2_vp86y")
 display_text = "It's getting denser!"
-spawn_speed = 1.5
+spawn_speed = 0.8
 spawn_table_entries = Array[ExtResource("3_j007y")]([SubResource("Resource_j007y")])
 metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
 
@@ -46,7 +47,7 @@ metadata/_custom_type_script = "uid://qmjhb4qanleo"
 [sub_resource type="Resource" id="Resource_6woyl"]
 script = ExtResource("2_vp86y")
 display_text = "I think we hit a hive!"
-spawn_speed = 1.5
+spawn_speed = 1.1
 spawn_table_entries = Array[ExtResource("3_j007y")]([SubResource("Resource_x5id7"), SubResource("Resource_l1ask")])
 metadata/_custom_type_script = "uid://bdnpl6ckx3pn7"
 

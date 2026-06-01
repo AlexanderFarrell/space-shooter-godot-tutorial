@@ -8,9 +8,6 @@ func start_game():
 	
 func game_over(finalScore: int, finalLevel: int):
 	isPlaying = false
-	
-func to_highscores():
-	get_tree().change_scene_to_file("res://scenes/root/highscores.tscn")
 
 func quit_to_menu():
 	get_tree().change_scene_to_file("res://scenes/root/menu.tscn")
