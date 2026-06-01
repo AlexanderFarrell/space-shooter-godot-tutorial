@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://brc66bh8cu61q" path="res://scenes/entity/player.tscn" id="1_2pllk"]
 [ext_resource type="Script" uid="uid://bfe7e81y04rcj" path="res://scripts/root/gameplay.gd" id="1_u25l5"]
+[ext_resource type="PackedScene" uid="uid://cuu14ivn4p4q2" path="res://scenes/ui/pause_menu.tscn" id="2_k0age"]
 [ext_resource type="PackedScene" uid="uid://dfwtkkfkbgo72" path="res://scenes/entity/enemies/pawn.tscn" id="2_m5vqo"]
 [ext_resource type="Script" uid="uid://ds2ar0gsiiw1k" path="res://scripts/ui/weapon_display.gd" id="3_4lxin"]
 [ext_resource type="Texture2D" uid="uid://lyc7xhy5pxch" path="res://assets/space_background_play.png" id="3_a3c1b"]
@@ -35,6 +36,7 @@ size = Vector2(1.6963758, 1281.5)
 
 [node name="Gameplay" type="Node" unique_id=1297433147]
 script = ExtResource("1_u25l5")
+pause_menu = ExtResource("2_k0age")
 enemy = ExtResource("2_m5vqo")
 levels = Array[ExtResource("3_lcvfv")]([ExtResource("4_y8oip"), ExtResource("5_tnaol")])
 
@@ -161,6 +163,10 @@ script = ExtResource("9_lcvfv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -641.0
+offset_top = -11.0
+offset_right = -641.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)

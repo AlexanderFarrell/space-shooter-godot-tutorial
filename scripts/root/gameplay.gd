@@ -8,6 +8,8 @@ enum GameplayState {
 	GAME_COMPLETE
 }
 
+@export var pause_menu: PackedScene
+
 var score := 0
 var next_spawn_chance := 0.0
 var spawn_time := 0.5
@@ -89,6 +91,8 @@ func _process(delta: float) -> void:
 				check_for_spawns_counter = 1.0
 				if get_tree().get_first_node_in_group("Spawn") == null and active_wave_run.is_empty():
 					_change_to_state(GameplayState.WAVE_TRANSITION)
+			if Input.is_action_just_pressed("pause"):
+				pause()
 				
 		GameplayState.GAME_OVER, GameplayState.GAME_COMPLETE:
 			if Input.is_action_pressed("pause"):
@@ -105,10 +109,15 @@ func _spawn_from_wave():
 	$World.add_child(e)
 	e.add_score.connect(_add_score)
 
-
 func _on_player_on_death() -> void:
 	_change_to_state(GameplayState.GAME_OVER)
 	
 func _add_score(score_to_add: int) -> void:
 	score += score_to_add
 	GameplayUi.display_score(score)
+	
+func pause():
+	var menu = pause_menu.instantiate()
+	menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	$UI/MarginContainer/Control.add_child(menu)
+	get_tree().paused = true
