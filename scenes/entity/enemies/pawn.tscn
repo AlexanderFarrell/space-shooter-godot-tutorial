@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfwtkkfkbgo72"]
 
 [ext_resource type="Texture2D" uid="uid://b0grb0kr6aevq" path="res://assets/alien001.png" id="1_ho1e7"]
-[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_lin2w"]
+[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entities/enemy.gd" id="1_lin2w"]
 [ext_resource type="AudioStream" uid="uid://bbrqxoc73vdsx" path="res://assets/sounds/alien_parrot_1.wav" id="2_pslio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lin2w"]

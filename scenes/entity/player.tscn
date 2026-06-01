@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brc66bh8cu61q"]
 
 [ext_resource type="Texture2D" uid="uid://b4dy6u3041g1a" path="res://assets/ship001.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://b4vk6v62w85e7" path="res://scripts/entites/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://b4vk6v62w85e7" path="res://scripts/entities/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://ulrs7g87xfqw" path="res://scenes/entity/bullet.tscn" id="2_tgyl1"]
 [ext_resource type="Script" uid="uid://d21xqfek205u3" path="res://scripts/data/weapon.gd" id="3_t8xyy"]
 [ext_resource type="Resource" uid="uid://fklkmj8034s3" path="res://data/survival_laser.tres" id="4_j8jve"]

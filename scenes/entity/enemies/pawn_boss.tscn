@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhhnupudxnfhj"]
 
-[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_t4oau"]
+[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entities/enemy.gd" id="1_t4oau"]
 [ext_resource type="Texture2D" uid="uid://b0grb0kr6aevq" path="res://assets/alien001.png" id="2_6tc3g"]
 [ext_resource type="AudioStream" uid="uid://bbrqxoc73vdsx" path="res://assets/sounds/alien_parrot_1.wav" id="2_s8dfp"]
 

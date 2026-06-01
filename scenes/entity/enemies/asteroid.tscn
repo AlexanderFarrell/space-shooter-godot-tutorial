@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dq3pju2mkt1wd"]
 
-[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entites/enemy.gd" id="1_fgw8t"]
+[ext_resource type="Script" uid="uid://del27h74ls32s" path="res://scripts/entities/enemy.gd" id="1_fgw8t"]
 [ext_resource type="Texture2D" uid="uid://dskll4k7vnp82" path="res://assets/asteroid001.png" id="2_f3nx0"]
 
 [node name="Enemy" type="Area2D" unique_id=50975838 groups=["Enemy", "Spawn"]]

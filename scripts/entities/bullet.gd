@@ -3,7 +3,6 @@ extends Area2D
 var weapon: Weapon
 var direction: Vector2
 var life := 0.0
-var player: AudioStreamPlayer2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -15,7 +14,6 @@ func setup(weapon_data: Weapon, pos: Vector2, dir: Vector2, mask: int):
 	direction = dir
 	life = weapon.lifetime
 	collision_mask = mask
-	player = AudioStreamPlayer2D.new()
 
 func _ready() -> void:
 	if weapon.bullet_texture:

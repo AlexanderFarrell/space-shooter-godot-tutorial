@@ -10,8 +10,6 @@ var time_to_fire = 0.0
 var health = 100.0
 var current_weapon_index = 0
 
-#signal switch_weapon(weapon: Weapon)
-#signal health_update(health: float)
 signal on_death()
 
 var active_weapon:
@@ -59,7 +57,7 @@ func _process(delta: float) -> void:
 		time_to_fire = 1.0 / active_weapon.fire_rate_per_second
 	if Input.is_action_just_pressed("switch_weapon_previous"):
 		current_weapon_index -= 1
-		if current_weapon_index <= 0:
+		if current_weapon_index < 0:
 			current_weapon_index = weapons.size() - 1
 			if current_weapon_index < 0:
 				current_weapon_index = 0
